@@ -16,4 +16,11 @@ public class ArgsTest {
     assertEquals(true, args.getBoolean('x'));
     assertEquals(true, args.getBoolean('y'));
   }
+
+  @Test
+  public void testOneStringPresent() throws Exception {
+    Args args = new Args("x*", new String[]{"-x hello"});
+    assertEquals(true, args.isValid());
+    assertEquals("hello", args.getString('x'));
+  }
 }
