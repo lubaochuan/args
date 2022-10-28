@@ -11,7 +11,7 @@ public class ArgsTest {
 
   @Test
   public void testTwoBooleanPresent() throws Exception {
-    Args args = new Args("x,y", new String[]{"-x -y"});
+    Args args = new Args("x,y", new String[]{"-x", "-y"});
     assertEquals(true, args.isValid());
     assertEquals(true, args.getBoolean('x'));
     assertEquals(true, args.getBoolean('y'));
@@ -19,7 +19,7 @@ public class ArgsTest {
 
   @Test
   public void testOneStringPresent() throws Exception {
-    Args args = new Args("x*", new String[]{"-x hello"});
+    Args args = new Args("x*", new String[]{"-x", "hello"});
     assertEquals(true, args.isValid());
     assertEquals("hello", args.getString('x'));
   }
